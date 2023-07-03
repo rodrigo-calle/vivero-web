@@ -1,0 +1,47 @@
+.link {
+    text-decoration: none;
+    color: #000;
+    .main {
+        width: 180px;
+        height: 290px;
+
+        .card {
+            width: 171px;
+            height: 198px;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+            width: 100%;
+            background-color: #f5f5dca0;
+            position: relative;
+            .discount {
+                width: 50px;
+                height: 25px;
+                position: absolute;
+                background-color: #9dcc2e;
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                justify-content: center;
+                top: 10px;
+                left: 10px;
+            }
+        }
+
+        .title {
+            font-size: 18px;
+            font-weight: normal;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+        .price {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            text-align: center;
+            color: #81ba00;
+        }
+
+    
+    }
+}
