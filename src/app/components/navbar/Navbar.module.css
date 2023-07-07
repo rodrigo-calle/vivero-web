@@ -1,0 +1,49 @@
+.main {
+    width: 100%;
+    height: 70px;
+    background-color: #222222;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    padding: 0 15px;
+    .general-icon{
+        width:25px;
+        height:25px;
+        color: #fff;
+    }
+    .button-responsive {
+        display: flex;
+        justify-content: start;
+        align-items: center;
+        background-color: inherit;
+        border: none;
+        outline: none;
+        width: 70px;
+        
+    }
+    .logo {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: row;
+        gap: 15px;
+        color: #fff;
+        font-size: 20px;
+        font-weight: 700;
+        text-decoration: none; 
+
+        .image-logo {
+            width: 50px;
+            height: 50px;
+        }
+    }
+    .handlers-container {
+        display: flex;
+        justify-content: right;
+        align-items: center;
+        flex-direction: row;
+        width: 100%;
+        height: 100%;
+        gap: 15px;
+    }
+}
