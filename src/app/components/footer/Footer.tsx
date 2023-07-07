@@ -1,6 +1,5 @@
-import { AiOutlineDown } from "react-icons/ai";
 import styles from "./Footer.module.css";
-import { BsChevronCompactDown } from "react-icons/bs";
+import Dropdown from "../dropdown/Dropdown";
 const Footer = () => {
   const footerContent = [
     {
@@ -64,23 +63,21 @@ const Footer = () => {
       ],
     },
   ];
+  const dropdownHandler = () => {};
 
   return (
     <div className={styles["main"]}>
       <div className={styles["dropdown-list"]}>
         {footerContent.map((item) => {
           return (
-            <div key={item.title} className={styles["dropdown-list__item"]}>
-              <p className={styles["dropdown-list__item-title"]}>
-                {item.title}
-              </p>{" "}
-              <BsChevronCompactDown className={styles.icon} />
-            </div>
+            <Dropdown key={item.title} title={item.title} links={item.links} />
           );
         })}
       </div>
       <p className={styles.line}></p>
-      <p className={styles["footer-about"]}>2023 - Vivero Santo Domingo - Chontabamba - Oxapampa</p>
+      <p className={styles["footer-about"]}>
+        2023 - Vivero Santo Domingo - Chontabamba - Oxapampa
+      </p>
     </div>
   );
 };
