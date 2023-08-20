@@ -136,13 +136,13 @@
       display: flex;
       flex-direction: row;
       width: 90%;
-      overflow-x: visible;
+      overflow-x: scroll;
       gap: 15px;
 
-      animation-name: slide;
+      /* animation-name: slide;
       animation-duration: 20s;
       animation-iteration-count: infinite;
-      animation-direction: normal;
+      animation-direction: normal; */
     }
   }
   .contact-us-card {

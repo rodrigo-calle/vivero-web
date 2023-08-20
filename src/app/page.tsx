@@ -4,14 +4,13 @@ import Navbar from "./components/navbar/Navbar";
 import Banner from "./components/banner/Banner";
 import { PiArrowCircleRight, PiArrowCircleLeft } from "react-icons/pi";
 import ServiceCard from "./components/serviceCard/ServiceCard";
-import React, { useEffect, useMemo } from "react";
+import React, { useEffect } from "react";
 import PrimaryButton from "./components/buttons/PrimaryButton";
 import ProductSlide from "./components/productSlide/ProductSlide";
 import { plantData, plantsList, servicesList } from "@/data/testData";
 import ProductCard from "./components/productCard/ProductCard";
 import "./page.css";
 import ReferenceCard from "./components/referenceCard/ReferenceCard";
-import AliceCarousel from "react-alice-carousel";
 import Footer from "./components/footer/Footer";
 
 enum ProductsType {
@@ -20,14 +19,20 @@ enum ProductsType {
 }
 
 export default function Home() {
-  const handleDragStart = (event: React.DragEvent<HTMLDivElement>) =>
-    event.preventDefault();
   const [cardPosition, setCardPosition] = React.useState<number>(0);
   const [slidePosition, setSlidePosition] = React.useState<number>(0);
   const [products, setProducts] = React.useState(
     plantsList.filter((plant) => plant.type === "hornamental")
   );
+  const [screenWidth, setScreenWidth] = React.useState<number>(0);
   const [slides, setSlides] = React.useState(plantData);
+
+  useEffect(() => {
+    setScreenWidth(window.innerWidth);
+    window.addEventListener("resize", () => {
+      setScreenWidth(window.innerWidth);
+    });
+  }, []);
   const handlerCardPosition = (position: "back" | "next") => {
     if (position === "back") {
       if (cardPosition === 0) {
@@ -44,7 +49,6 @@ export default function Home() {
       }
     }
   };
-  const screenWidth = screen.width;
   const currentService = [servicesList[cardPosition]];
   const handlerSlides = (position: "back" | "next") => {
     if (position === "back") {
@@ -75,13 +79,11 @@ export default function Home() {
       setProducts(plantsList.filter((plant) => plant.type === "hornamental"));
     }
   };
-
   useEffect(() => {
     if (screenWidth < 500) {
       setSlides([plantData[slidePosition]]);
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [slidePosition]);
+  }, [screenWidth, slidePosition]);
 
   const moreProducts = products.slice(0, 8).map((plant) => {
     return (
@@ -99,7 +101,7 @@ export default function Home() {
       </div>
     );
   });
-  console.log({ moreProducts });
+
   return (
     <main className={styles.main}>
       <header>
