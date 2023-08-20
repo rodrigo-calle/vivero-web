@@ -31,6 +31,19 @@
         height: 1px;
         background-color: #ffffff73;
     }
+
+    .submenu-dropdown {
+        display: flex;
+        flex-direction: column;
+        padding-left: 15px;
+        .dropdown-submenu__list-item {
+            text-decoration: none;
+            color: #fff;
+            list-style: none;
+            margin: 5px 0px;
+        }
+    }
+
     .footer-about {
         color: #ffffff73;
         text-align: center;
