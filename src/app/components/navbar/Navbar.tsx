@@ -6,18 +6,41 @@ import {
   AiOutlineShopping,
   AiOutlineUser,
 } from "react-icons/ai";
+import { useState } from "react";
+import HamburguerMenu from "../hamburguerMenu/HamburguerMenu";
 
 const Navbar = () => {
+  const [open, setOpen] = useState<boolean>(false);
   const menuList = [
     {
-      name: "Home",
+      name: "Inicio",
       url: "/",
+    },
+    {
+      name: "Productos",
+      url: "/productos",
+    },
+    {
+      name: "Servicios",
+      url: "/servicios",
+    },
+    {
+      name: "Nosotros",
+      url: "/nosotros",
+    },
+    {
+      name: "Contacto",
+      url: "/contacto",
     },
   ];
 
   return (
     <nav className={styles.main}>
-      <button className={styles["button-responsive"]}>
+      <HamburguerMenu open={open} setOpen={setOpen} menuList={menuList} />
+      <button
+        className={styles["button-responsive"]}
+        onClick={() => setOpen(!open)}
+      >
         <AiOutlineMenu className={styles["general-icon"]} />
       </button>
       <div className={styles.logo}>
